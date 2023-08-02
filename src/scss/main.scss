@@ -1,5 +1,11 @@
 
 @import './media'; 
 @import './reset';
+@import './theme';
 @import './spacing';
 @import './typography';
+
+body{
+    min-height: 100vh;
+    background-color: var(--background-color);
+}
