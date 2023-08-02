@@ -1,15 +1,35 @@
-export default function App(){
+import { createBrowserRouter,RouterProvider } from "react-router-dom";
 
-    function toggleTheme(){
-        document.documentElement.classList.toggle('dark-mode');
+import OutletComponent from "./components/OutletComponent";
+import MainNavigation from "./components/MainNavigation";
+import Home from "./Page/Home";
+import CountryDetail from "./Page/CountryDetail";
+
+const router = createBrowserRouter([
+    {
+        path: '/',
+        element: <OutletComponent />,
+        children: [
+            {
+                path: '/',
+                element:<MainNavigation />,
+                children: [
+                    {
+                        index: true,
+                        element: <Home/>
+                    },
+                    {
+                        path: '/:countryId',
+                        element: <CountryDetail />
+                    }
+                ]
+            }
+        ]
     }
+])
 
+export default function App(){
     return (
-        <>
-            <h1>Where in the world?</h1>
-            <h2>Belgium</h2>
-            <h3 className="body-text"><b>Capital:</b> Brussels</h3>
-            <button onClick={toggleTheme}>Change Theme</button>
-        </>
+       <RouterProvider router={router} />
     );
 }
