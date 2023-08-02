@@ -1,9 +1,15 @@
+@use '/node_modules/sass-mq/mq' as mq;
+
 body{
     color: var(--text-color);
 }
 
-h1{
+.h1{
     font-size: 1.875rem;
+    @include mq.mq($from: mobile, $until: tablet) {
+        font-size: 1.125rem;
+    }
+
     line-height: 2.25rem;
     font-weight: 800;
 }
