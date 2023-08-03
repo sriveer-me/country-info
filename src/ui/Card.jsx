@@ -5,12 +5,13 @@ export default function Card({
     countryName,
     population,
     region,
-    capital
+    capital,
+    onClick
 }){
     
     return(
-        <article className={Classes['article']}>
-            <img src={imgSrc} alt={`${countryName} flag`} />
+        <article onClick={onClick} className={Classes['article']}>
+            <img src={imgSrc} alt={`${countryName} flag`} className={`${Classes['img']}`}/>
             <div className={Classes['margin-box']}>
                 <h2 className={`h2 ${Classes['country-name']}`}>{countryName}</h2>
                 <p className={Classes['country-stat']}><b>Population: </b>{population.toLocaleString("en-US")}</p>

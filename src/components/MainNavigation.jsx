@@ -1,11 +1,21 @@
 import { Outlet,Link } from "react-router-dom";
 import { BsMoonFill,BsMoon } from "react-icons/bs";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
+import axios from 'axios';
 import Classes from './MainNavigation.module.scss';
 
 export default function MainNavigation(){
     const [darkModeEnabled,setDarkModeEnabled] = useState(false);
+    const [flagData,setFlagData] = useState([]);
+
+    useEffect(function(){
+        async function getFlagData(){
+            const {data} = await axios.get('https://restcountries.com/v3.1/all')
+            setFlagData(data);
+        }
+        getFlagData();
+    },[])
     
     function darkModeButtonClick(){
         setDarkModeEnabled(!darkModeEnabled);
@@ -25,7 +35,7 @@ export default function MainNavigation(){
                     <span className="body-text"><b>Dark Mode</b></span>
                 </button>
             </header>
-            <Outlet />
+            <Outlet context={{flagData: flagData}}/>
         </>
     );
 }

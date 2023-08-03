@@ -1,0 +1,11 @@
+.main{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: var(--space-14);
+    row-gap: var(--space-8);
+
+    margin-top: var(--space-8);
+    margin-left: var(--space-12);
+    margin-right: var(--space-12);
+}

@@ -1,27 +1,30 @@
-import { useEffect, useState } from "react";
+import { useOutletContext,useNavigate } from "react-router-dom";
 import Card from "../ui/Card";
 
-import axios from 'axios';
+import Classes from './Home.module.scss';
 
-let flagData =null;
 export default function Home(){
+    const outletContext = useOutletContext();
+    const navigate = useNavigate();
 
-    const [state,setState] = useState(false);
-
-    useEffect(function(){
-        async function getFlagData(){
-            const {data} = await axios.get('https://restcountries.com/v3.1/all')
-            flagData = data;
-            setState(true);
-        }
-        getFlagData();
-    },[])
-
-    if(state === true){
-        const cards = flagData.map((flg,index) => <Card key={`card-${flg.numericCode}-${index}`} imgSrc={flg.flags.svg} countryName={flg.name.official} population={flg.population} region={flg.region} capital={flg.capital}/>);
-        return cards;
+    function handleCardClick(countryCode){
+        console.log(countryCode);
+        navigate(`/${countryCode}`);
     }
+
     return(
-        <h1>hi</h1>
+        <main className={Classes['main']}>
+            {outletContext.flagData.map(
+                    (flg,index) => <Card 
+                        onClick={() => handleCardClick(flg.cca3)}
+                        key={`card-${flg.numericCode}-${index}`} 
+                        imgSrc={flg.flags.svg} 
+                        countryName={flg.name.official} 
+                        population={flg.population} 
+                        region={flg.region} 
+                        capital={flg.capital}
+                    />
+                )}
+        </main>
     );
 }

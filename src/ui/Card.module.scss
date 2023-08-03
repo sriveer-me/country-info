@@ -1,10 +1,18 @@
 .article{
     transition: transform .25s ease-in-out,
                 box-shadow .25s ease-in-out;
-    max-width: 350px;
+    width: 300px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    background-color: var(--background-color-element);
+    border-radius: 10px;
+    overflow: hidden;
 
     cursor: pointer;
+}
+
+.img{
+    width: 100%;
+    aspect-ratio: 3/2;
 }
 
 .article:hover{
@@ -19,11 +27,19 @@
 
 .margin-box{
     margin-left: var(--space-5);
+    margin-right: var(--space-5);
 }
 
 .country-name{
     margin-top: var(--space-5);
     margin-bottom: var(--space-5);
+
+    height: 80px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .country-stat:not(:last-child){
