@@ -1,0 +1,35 @@
+.article{
+    transition: transform .25s ease-in-out,
+                box-shadow .25s ease-in-out;
+    max-width: 350px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+    cursor: pointer;
+}
+
+.article:hover{
+    transform:translateY(-2px) scale(1.05);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 15px;
+}
+
+.article:active{
+    transform:translateY(2px) scale(.95);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 8px;
+}
+
+.margin-box{
+    margin-left: var(--space-5);
+}
+
+.country-name{
+    margin-top: var(--space-5);
+    margin-bottom: var(--space-5);
+}
+
+.country-stat:not(:last-child){
+    margin: var(--space-155) 0;
+}
+
+.country-stat:last-child{
+    padding-bottom: var(--space-8);
+}
