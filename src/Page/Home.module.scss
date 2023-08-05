@@ -1,4 +1,4 @@
-.main{
+.card-holder{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -8,4 +8,8 @@
     margin-top: var(--space-8);
     margin-left: var(--space-12);
     margin-right: var(--space-12);
+}
+
+.filter-rack{
+    margin: var(--space-12) var(--space-12);
 }

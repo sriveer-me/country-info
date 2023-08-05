@@ -1,0 +1,37 @@
+.label{
+    position: relative;
+}
+
+.input{
+    display: block;
+    width: 500px;
+
+    color: var(--text-color);
+    background-color: var(--background-color-element);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    display: block;
+    border: none;
+
+    padding: var(--space-3) var(--space-8);
+    padding-left: var(--space-14);
+
+    border-radius: 10px;
+
+    &::placeholder{
+        color: var(--text-color);
+        // color: red;
+    }
+}
+
+.input:focus{
+    outline: none;
+}
+
+.search-icon{
+    position: absolute;
+    width: 18px;
+    height: 18px;
+
+    top: 15px;
+    left: var(--space-6);
+}

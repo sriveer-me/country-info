@@ -2,17 +2,26 @@ import { Outlet,Link } from "react-router-dom";
 import { BsMoonFill,BsMoon } from "react-icons/bs";
 import { useEffect, useState } from "react";
 
+import Fuse from 'fuse.js'
+
 import axios from 'axios';
 import Classes from './MainNavigation.module.scss';
 
 export default function MainNavigation(){
     const [darkModeEnabled,setDarkModeEnabled] = useState(false);
-    const [flagData,setFlagData] = useState([]);
+    const [flagData,setFlagData] = useState({ data: [],fuse: null});
 
     useEffect(function(){
         async function getFlagData(){
             const {data} = await axios.get('https://restcountries.com/v3.1/all')
-            setFlagData(data);
+            setFlagData({
+                data,
+                fuse: new Fuse(data,{
+                    keys: ['name.common','capital','cca3','altSpellings'],
+                    shouldSort: true,
+                    findAllMatches: true
+                })
+            });
         }
         getFlagData();
     },[])
