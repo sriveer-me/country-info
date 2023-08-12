@@ -11,5 +11,9 @@
 }
 
 .filter-rack{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
     margin: var(--space-12) var(--space-12);
 }

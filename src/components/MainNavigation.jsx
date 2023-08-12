@@ -19,7 +19,7 @@ export default function MainNavigation(){
                 fuse: new Fuse(data,{
                     keys: ['name.common','capital','cca3','altSpellings'],
                     shouldSort: true,
-                    findAllMatches: true
+                    findAllMatches: true,
                 })
             });
         }
