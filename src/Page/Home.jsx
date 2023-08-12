@@ -1,7 +1,7 @@
 import { useOutletContext,useNavigate } from "react-router-dom";
 import Card from "../ui/Card";
 import SearchBar from "../ui/SearchBar";
-import ComboBox from "../ui/ComboBox/ComboBox";
+import ComboBox from "../ui/ComboBox";
 
 import Classes from './Home.module.scss';
 import { useState } from "react";

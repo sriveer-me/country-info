@@ -1,4 +1,5 @@
 import { useOutletContext, useParams } from "react-router-dom"
+import CountryChip from "../ui/CountryChip";
 import Classes from './CountryDetail.module.scss';
 
 export default function CountryDetail(){
@@ -21,7 +22,15 @@ export default function CountryDetail(){
 
         let borderCountries = null;
         if("borders" in country){
-            borderCountries = country.borders.toString();
+            borderCountries = country.borders.map((countryId) => {
+                const country = flagData.data.find((flg) => flg.cca3 === countryId);
+                return(<CountryChip 
+                            link={`/${countryId}`} 
+                            name={country.name.nativeName[Object.keys(country.name.nativeName)[0]].common}
+                            flag={country.flags.svg}
+                            key={`country chip named ${countryId} for ${nativeName}`}
+                        />);
+            })
         }
 
         return(
