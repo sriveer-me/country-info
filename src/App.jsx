@@ -3,6 +3,7 @@ import { createBrowserRouter,RouterProvider } from "react-router-dom";
 import OutletComponent from "./components/OutletComponent";
 import MainNavigation from "./components/MainNavigation";
 import Home from "./Page/Home";
+import CountryDetailOutlet from "./Page/CountryDetailOutlet";
 import CountryDetail from "./Page/CountryDetail";
 
 const router = createBrowserRouter([
@@ -20,7 +21,13 @@ const router = createBrowserRouter([
                     },
                     {
                         path: '/:countryId',
-                        element: <CountryDetail />
+                        element: <CountryDetailOutlet />,
+                        children: [
+                            {
+                                index: true,
+                                element: <CountryDetail />
+                            }
+                        ]
                     }
                 ]
             }

@@ -1,4 +1,4 @@
-import { Outlet,Link } from "react-router-dom";
+import { Outlet,Link, useOutletContext } from "react-router-dom";
 import { BsMoonFill,BsMoon } from "react-icons/bs";
 import { useEffect, useState } from "react";
 
@@ -31,6 +31,8 @@ export default function MainNavigation(){
         document.documentElement.classList.toggle('dark-mode');
     }
 
+    const context = useOutletContext();
+
     return(
         <>
             <header className={Classes['header']}>
@@ -44,7 +46,7 @@ export default function MainNavigation(){
                     <span className="body-text"><b>Dark Mode</b></span>
                 </button>
             </header>
-            <Outlet context={{flagData: flagData}}/>
+            <Outlet context={{flagData: flagData, historyStack: context.historyStack}}/>
         </>
     );
 }
