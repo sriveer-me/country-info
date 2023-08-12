@@ -4,9 +4,6 @@ import Classes from './ComboBox.module.scss';
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { MdOutlineKeyboardArrowUp } from "react-icons/md";
 
-
-// let selectedItemDisplayValue = null;
-
 export default function ComboBox({
     placeHolder,
     items,
