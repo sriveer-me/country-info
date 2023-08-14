@@ -39,7 +39,7 @@ Users should be able to:
 #### Desktop
 
 ![country-selector-light-mode](./country-selector-light-mode.png)
-![country-selector-dark-mode](./country-selector-dark-mode)
+![country-selector-dark-mode](./country-selector-dark-mode.png)
 ![country-detail-light-mode](./country-detail-light-mode.png)
 ![country-detail-dark-mode](./country-detail-dark-mode.png)
 
