@@ -10,6 +10,8 @@ export default function CountryDetail(){
     if(flagData.data.length > 0){
         const country = flagData.data.find((flg) => flg.cca3 === params.countryId)
 
+        const countryName = country.name.common; 
+
         const nativeName = country.name.nativeName[Object.keys(country.name.nativeName)[0]].common;
         const population = country.population.toLocaleString("en-US");
         const region = country.region;
@@ -26,7 +28,7 @@ export default function CountryDetail(){
                 const country = flagData.data.find((flg) => flg.cca3 === countryId);
                 return(<CountryChip 
                             link={`/${countryId}`} 
-                            name={country.name.nativeName[Object.keys(country.name.nativeName)[0]].common}
+                            name={country.name.common}
                             flag={country.flags.svg}
                             key={`country chip named ${countryId} for ${nativeName}`}
                         />);
@@ -35,12 +37,15 @@ export default function CountryDetail(){
 
         return(
             <section className={Classes['section']}>
-                <img 
-                    src={country.flags.svg} 
-                    alt={`Country Flag Of ${country.name}`}
-                    className={Classes['img']}
-                />
+                <div className={Classes['image-container']}>
+                    <img 
+                        src={country.flags.svg} 
+                        alt={`Country Flag Of ${country.name}`}
+                        className={Classes['img']}
+                    />
+                </div>
                 <article className={Classes['article']}>
+                <h1 className={Classes['country-heading']}>{countryName}</h1>
                     <div className={Classes['columns']}>
                         <div className={Classes['left-column']}>
                             <p><b>Native Name:</b> {nativeName}</p>
@@ -56,7 +61,7 @@ export default function CountryDetail(){
                         </div>
                     </div>
                     <footer className={Classes['footer']}>
-                        <p><b>Border Countries:</b> {borderCountries}</p>
+                        <p className={Classes['border-countries']}><b>Border Countries:</b> {borderCountries}</p>
                     </footer>
                 </article>
             </section>

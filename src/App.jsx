@@ -6,6 +6,8 @@ import Home from "./Page/Home";
 import CountryDetailOutlet from "./Page/CountryDetailOutlet";
 import CountryDetail from "./Page/CountryDetail";
 
+import Classes from './App.module.scss';
+
 const router = createBrowserRouter([
     {
         path: '/',
@@ -37,6 +39,8 @@ const router = createBrowserRouter([
 
 export default function App(){
     return (
-       <RouterProvider router={router} />
+        <div className={Classes['app']}>
+            <RouterProvider router={router} />
+        </div>
     );
 }

@@ -1,4 +1,6 @@
 import { Outlet, useNavigate, useOutletContext } from "react-router-dom";
+import { BsArrowLeft } from "react-icons/bs";
+import Classes from './CountryDetailOutlet.module.scss'
 
 export default function CountryDetailOutlet(){
 
@@ -17,7 +19,13 @@ export default function CountryDetailOutlet(){
 
     return(
         <>
-            <button onClick={handleBack}>Back</button>
+            <button
+                className={Classes['button']} 
+                onClick={handleBack}
+            >
+                <BsArrowLeft />
+                Back
+            </button>
             <Outlet context={{flagData: flagData}}/>
         </>
     );
